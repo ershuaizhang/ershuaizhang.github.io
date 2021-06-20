@@ -32,7 +32,6 @@ html,body{
 }
 #left_side{
     position:absolute;
-    text-align: left;
     overflow-y: auto;
     top:0px;
     left:0px;
@@ -61,3 +60,6 @@ html,body{
     background-color: blanchedalmond;
 }
 
+ul {
+    padding-inline-start: unset;
+}
