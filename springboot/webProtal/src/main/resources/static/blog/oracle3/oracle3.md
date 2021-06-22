@@ -64,6 +64,72 @@
     是Oracle中的一个列但是并不会存储在表中,伪列可以从表中查询,但不能插入,更新和删除就是不能进行操作
     rowid:存的是每一行的地址； 
     rownum:存的是每一列的id,代替limit进行每页查询的编写
+    
+##distinct 去重
+	DISTINCT语句的语法如下：SELECT DISTINCT clo* from 
+	单列 SELECT DISTINCT clo from 
+	多列 SELECT DISTINCT clo1, clo1 from
+	
+##order by 排序
+	按多个列排序行示例
+		ORDER BY first_name, last_name DESC; --- 按first_name进行按升序排序，并按降序对last_name列进行排序
+	
+	按列位置排序行示例
+		SELECT name, credit_limit,address FROM customers ORDER BY 2 DESC, 1;
+		相当于
+		SELECT name, credit_limit,address FROM customers ORDER BY credit_limit DESC, name;	    
+
+##每张表最多可建立12 种类型的触发器
+	BEFORE INSERT
+	BEFORE INSERT FOR EACH ROW
+	AFTER INSERT
+	AFTER INSERT FOR EACH ROW
+
+	BEFORE UPDATE
+	BEFORE UPDATE FOR EACH ROW
+	AFTER UPDATE
+	AFTER UPDATE FOR EACH ROW
+
+	BEFORE DELETE
+	BEFORE DELETE FOR EACH ROW
+	AFTER DELETE
+	AFTER DELETE FOR EACH ROW
+
+##Oracle 数据库中 SYS、SYSTEM、DBSNMP、SYSMAN 四用户的区别 用户： 
+
+    SYS 用户： SYS，默认密码为 CHANGE_ON_INSTALL,当创建一个数据库时，SYS 用户将被默认 创建并授予 DBA 角色，
+    所有数据库数据字典中的基本表和视图都存储在名为 SYS 的方案中，这些基本表和视图对于 Oracle 数据库的操作时非常重要的。
+    为了维 护数据字典的真实性，SYS 方案中的表只能由系统来维护，他们不能被任何用户 或数据库管理员修改，而且任何用户不能在 SYS 方案中创建表。 
+    
+    SYSTEM 用户： SYSTEM，默认密码为 MANAGER，与 SYS 一样，在创建 Oracle 数据库时，SYSTEM 用户被默认创建并被授予 DBA 角色，
+    用于创建显示管理信息的表或视图，以及被 各种 Oracle 数据库应用和工具使用的内容表或视图。
+    
+    DBSNMP 用户： DBSNMP 是 Oracle 数据库中用于智能代理（Intelligent Agent）的用户，用来 监控和管理数据库相关性能的用户，如果停止该用户，
+    则无法提取相关的数据信息； 
+    
+    SYSMAN 用户： SYSMAN 是 Oracle 数据库中用于 EM 管理的用户，如果你不用该用户，也可以删 除。
+    
+
+
+ ##sys 和 system 用户的区别 
+     【system】用户只能用 normal 身份登陆 em。 
+     【sys】用户具有“SYSDBA”或者“SYSOPER”权限，登陆 em 也只能用这两个身份，不能用 normal。 
+    
+    “SYSOPER”权限，即数据库操作员权限，
+        权限包括： 打开数据库服务器、 关闭数据库服务器、 备份数据库 日志归档、 恢复数据库、 会话限制
+    
+    “SYSDBA”权限，即数据库管理员权限，
+        权限包括： 打开数据库服务器、 关闭数据库服务器、 备份数据库、 日志归档、 管理功能、 恢复数据库、 会话限制、
+
+##normal 、sysdba、 sysoper 有什么区别：
+    normal 是普通用户。  另外两个，你考察他们所具有的权限就知道了，
+    
+    sysdba 拥有最高的系统权限 
+    
+    sysoper 主要用来启动、关闭数据库，登陆后用户是
+    
+    public sysdba 登陆后是 sys
+	
 <p>
     <a href="#" onclick="refreshContent('oracle2')">返回 Oracle 2.0</a>
 </p>
