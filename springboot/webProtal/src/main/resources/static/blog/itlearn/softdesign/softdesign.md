@@ -33,45 +33,45 @@
 ##设计模式的类型
 ###1、创建型模式 
     这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用 new 运算符直接实例化对象。这使得程序在判断针对某个给定实例需要创建哪些对象时更加灵活。###
-<a href="#" onclick="refreshDesignContent('designfactory')">工厂模式（Factory Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designabstractfactory')">抽象工厂模式（Abstract Factory Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designsingleton')">单例模式（Singleton Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designbuilder')">建造者模式（Builder Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designprototype')">原型模式（Prototype Pattern）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designfactory')">工厂模式（Factory）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designabstractfactory')">抽象工厂模式（Abstract Factory）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designsingleton')">单例模式（Singleton）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designbuilder')">建造者模式（Builder）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designprototype')">原型模式（Prototype）</a>&emsp;&emsp;&emsp;
 
 ###2、结构型模式
     这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式
-<a href="#" onclick="refreshDesignContent('designadapter')">适配器模式（Adapter Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designbridge')">桥接模式（Bridge Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designfilter')">过滤器模式（Filter、Criteria Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designcomposite')">组合模式（Composite Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designdecorator')">装饰器模式（Decorator Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designfacade')">外观模式（Facade Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designflyweight')">享元模式（Flyweight Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designproxy')">代理模式（Proxy Pattern）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designadapter')">适配器模式（Adapter）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designbridge')">桥接模式（Bridge）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designfilter')">过滤器模式（Filter、Criteria）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designcomposite')">组合模式（Composite）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designdecorator')">装饰器模式（Decorator）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designfacade')">外观模式（Facade）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designflyweight')">享元模式（Flyweight）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designproxy')">代理模式（Proxy）</a>&emsp;&emsp;&emsp;
 
 ###3、行为型模式
     这些设计模式特别关注对象之间的通信。
-<a href="#" onclick="refreshDesignContent('designchain')">责任链模式（Chain of Responsibility Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designcommand')">命令模式（Command Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designinterpreter')">解释器模式（Interpreter Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designiterator')">迭代器模式（Iterator Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designmediator')">中介者模式（Mediator Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designmemento')">备忘录模式（Memento Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designobserver')">观察者模式（Observer Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designstate')">状态模式（State Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designnullobject')">空对象模式（Null Object Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designstrategy')">策略模式（Strategy Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designtemplate')">模板模式（Template Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designvisitor')">访问者模式（Visitor Pattern）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designchain')">责任链模式（Chain of Responsibility）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designcommand')">命令模式（Command）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designinterpreter')">解释器模式（Interpreter）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designiterator')">迭代器模式（Iterator）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designmediator')">中介者模式（Mediator）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designmemento')">备忘录模式（Memento）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designobserver')">观察者模式（Observer）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designstate')">状态模式（State）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designnullobject')">空对象模式（Null Object）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designstrategy')">策略模式（Strategy）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designtemplate')">模板模式（Template）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designvisitor')">访问者模式（Visitor）</a>&emsp;&emsp;&emsp;
 ###4、J2EE 模式
     这些设计模式特别关注表示层。这些模式是由 Sun Java Center 鉴定的。
-<a href="#" onclick="refreshDesignContent('designmvc')">MVC 模式（MVC Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designmvvm')">MVVM 模式（MVVM Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designbusinessdelegate')">业务代表模式（Business Delegate Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designcompositeentity')">组合实体模式（Composite Entity Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designdataaccessoject')">数据访问对象模式（Data Access Object Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designfrontcontroller')">前端控制器模式（Front Controller Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designinterceptingfilter')">拦截过滤器模式（Intercepting Filter Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designservicelocator')">服务定位器模式（Service Locator Pattern）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshDesignContent('designtransferobject')">传输对象模式（Transfer Object Pattern）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designmvc')">MVC 模式（MVC）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designmvvm')">MVVM 模式（MVVM）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designbusinessdelegate')">业务代表模式（Business Delegate）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designcompositeentity')">组合实体模式（Composite Entity）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designdataaccessoject')">数据访问对象模式（Data Access Object）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designfrontcontroller')">前端控制器模式（Front Controller）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designinterceptingfilter')">拦截过滤器模式（Intercepting Filter）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designservicelocator')">服务定位器模式（Service Locator）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDesignContent('designtransferobject')">传输对象模式（Transfer Object）</a>&emsp;&emsp;&emsp;
