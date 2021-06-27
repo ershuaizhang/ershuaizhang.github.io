@@ -1,3 +1,5 @@
+<a href="#" onclick="refreshContent('springboot')">返回</a>
+
 ##如何在SpringBoot中使用servlet
 ###方法一
 1、编写servlet类 继承HttpServlet类，按需复写父类的方法 对于这个servlet不做多余的注解
@@ -61,3 +63,4 @@ http://codingdict.com/sources/java/org.springframework.boot/19043.html
 http://codingdict.com/sources/java/org.springframework.boot/19043.html
 
 https://www.cnblogs.com/Guhongying/p/10517201.html
+ 

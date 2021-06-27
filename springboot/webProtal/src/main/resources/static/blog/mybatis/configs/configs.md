@@ -1,3 +1,5 @@
+<ul><a href="#" onclick="refreshContent('mybatis')">返回</a></ul>
+
 ###配置文件的说明
 在mybatis框架自己对应的配置文件中比较重要的 配模块是 properties 和settings 两部分
 

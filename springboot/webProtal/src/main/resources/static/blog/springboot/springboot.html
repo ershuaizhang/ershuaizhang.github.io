@@ -10,6 +10,13 @@
             $.get('../blog/springboot/springboot.md', function (response, status, xhr) {
                 $("#springboot_area").html(marked(response));
             });
+            function refreshSpringBootContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/springboot/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>

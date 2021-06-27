@@ -1,3 +1,5 @@
+<a href="#" onclick="refreshContent('springboot')">返回</a>
+
 ##跨域请求解决方案
 一般如下几种方案：https://zhuanlan.zhihu.com/p/50416743
 
@@ -6,6 +8,7 @@
     使用HTML5 API：postMessage；
     抛弃HTTP，使用：Web Sockets
 ### 使用JSONP
+
 浏览器的“同源策略”只是阻止了通过AJAX技术跨域获取资源，而并没有禁止跨域获取资源这件事本身，正因如此，
 我们可以通过 link 标签， img 标签以及 script 标签中的href属性或src属性获取异域的CSS，JS资源和图片
 （虽然我们其实并不能读取这些资源的内容）
@@ -207,3 +210,5 @@ demo：
 很显然的，我们应该着重检测event对象的origin属性，建立一个白名单对origin属性进行检测通常是一个明智的做法
 
 
+
+ 
