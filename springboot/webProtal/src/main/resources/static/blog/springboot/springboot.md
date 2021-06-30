@@ -24,7 +24,8 @@
 	问题的修改方法是在启动类上将数据库配置进行去除
 	@SpringBootApplication(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 	这样我们的工程就是一个脱离数据存在的工程了这样的配置一般是因为我这个工程是单独进行放置前端文件的。
-    
-
-
+   
+   
+6、统一升级版本号
+参考Wiki：https://www.cnblogs.com/lukelook/p/11298168.html
  

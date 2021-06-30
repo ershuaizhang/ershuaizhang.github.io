@@ -9,10 +9,7 @@
 
 ##springboot启动机制（starter机制）
 
-##lombook的使用
- https://blog.csdn.net/Y_hahaha/article/details/89186284
-##统一升级版本号
-参考Wiki：https://www.cnblogs.com/lukelook/p/11298168.html
+
 ### 1引用插件
         <plugin>
             <groupId>org.codehaus.mojo</groupId>

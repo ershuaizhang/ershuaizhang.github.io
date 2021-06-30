@@ -40,45 +40,76 @@
 6、Zookeeper 的典型应用场景
 
     （1）数据发布/订阅
-
     （2）负载均衡
-
     （3）命名服务
-
     （4）分布式协调/通知
-
     （5）集群管理
-
     （6）Master 选举
-
     （7）分布式锁
-
     （8）分布式队列
 
-
-四种类型的数据节点 Znode
+7、四种类型的数据节点 Znode
 
     （1）PERSISTENT-持久节点
-
     除非手动删除，否则节点一直存在于 Zookeeper 上
 
     （2）EPHEMERAL-临时节点
-
     临时节点的生命周期与客户端会话绑定，一旦客户端会话失效（客户端与zookeeper 连接断开不一定会话失效），那么这个客户端创建的所有临时节点都会被移除。
 
     （3）PERSISTENT_SEQUENTIAL-持久顺序节点
-
     基本特性同持久节点，只是增加了顺序属性，节点名后边会追加一个由父节点维护的自增整型数字。
 
     （4）EPHEMERAL_SEQUENTIAL-临时顺序节点
-
     基本特性同临时节点，增加了顺序属性，节点名后边会追加一个由父节点维护的自增整型数字。
 
+8、节点查看：
+   
+    创建节点
+    create /nodeName
+    删除节点
+    delete /nodeName
+    查看节点的状态
+    stat /nodeName
+    
 
-部署模式：
+9、部署模式：
 
     单机模式、伪集群模式、集群模式
     集群需要一半以上的机器可用，所以，3台挂掉1台还能工作，2台不能
+
+10、ACL 权限控制	
+
+	//创建节点
+	create /digest_node1
+	//设置digest权限验证
+	setAcl /digest_node1 digest:用户名:base64格式密码:rwadc 
+	//查询节点Acl权限
+	getAcl /digest_node1 
+	//授权操作
+	addauth digest user:passwd
+	
+	在 ZooKeeper 中已经定义好的权限有 5 种：
+		数据节点（create）创建权限，授予权限的对象可以在数据节点下创建子节点；
+		数据节点（wirte）更新权限，授予权限的对象可以更新该数据节点；
+		数据节点（read）读取权限，授予权限的对象可以读取该节点的内容以及子节点的信息；
+		数据节点（delete）删除权限，授予权限的对象可以删除该数据节点的子节点；
+		数据节点（admin）管理者权限，授予权限的对象可以对该数据节点体进行 ACL 权限设置。
+		
+	权限模式：Scheme
+		权限模式就是用来设置 ZooKeeper 服务器进行权限验证的方式。
+		ZooKeeper 的权限验证方式大体分为两种类型，一种是范围验证，另外一种是口令验证(也可以理解为用户名密码的方式)
+		
+	每个节点都有维护自身的 ACL 权限数据，即使是该节点的子节点也是有自己的 ACL 权限而不是直接继承其父节点的权限	
+	
+	自定义权限：
+		最核心的一点是实现 ZooKeeper 提供的权限控制器接口 AuthenticationProvider。
+		实现了自定义权限后，接下来就需要将自定义的权限控制注册到 ZooKeeper 服务器中，而注册的方式通常有两种。
+			第一种是通过设置系统属性来注册自定义的权限控制器：
+			复制-Dzookeeper.authProvider.x=CustomAuthenticationProvider
+			另一种是在配置文件 zoo.cfg 中进行配置：
+			复制authProvider.x=CustomAuthenticationProvider
+
+
 
 ZooKeeper面试题
 

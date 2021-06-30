@@ -6,6 +6,7 @@
 <a href="#" onclick="refreshSpringCloudContent('hystrix')">SpringCloud（hystrix）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringCloudContent('ribbon')">SpringCloud（ribbon）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringCloudContent('zuul')">SpringCloud（zuul）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshSpringCloudContent('other')">SpringCloud（其他）</a>&emsp;&emsp;&emsp;
 
 ---
 

@@ -19,13 +19,7 @@ function refreshSpringCloudContent(choose) {
     var target = '/blog/springcloud/' + choose + '/' + choose + '.html';
     $("#content").load(location.web.staticpath + target);
 }
-function refreshJavaContent(choose) {
-    if (!choose) {
-        return;
-    }
-    var target = '/blog/java/' + choose + '/' + choose + '.html';
-    $("#content").load(location.web.staticpath + target);
-}
+
 function refreshSpringContent(choose) {
     if (!choose) {
         return;
