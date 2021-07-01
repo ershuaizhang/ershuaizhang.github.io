@@ -12,6 +12,7 @@
 
 	drop database <数据库名>;
 3、安全建表
+
     DROP TABLE IF EXISTS sys_area;
      
     CREATE TABLE sys_area (

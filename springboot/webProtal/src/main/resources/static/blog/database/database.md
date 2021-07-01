@@ -1,6 +1,7 @@
 # 数据库相关 知识
 <a href="#" onclick="refreshDatabaseContent('mysql')">Mysql 相关</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshDatabaseContent('oracle')">Oracle 相关</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDatabaseContent('question')">问题相关</a>&emsp;&emsp;&emsp;
 
 ---
 

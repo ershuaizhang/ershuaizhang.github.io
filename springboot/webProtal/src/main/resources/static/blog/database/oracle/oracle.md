@@ -123,6 +123,10 @@
  
     Oracle查看当前用户权限：
         select * from session_privs
+    
+    --把所有表的查询权限赋给另一个用户
+    grant select any table to 'QUERY';
+            
 ###oracle的系统和对象权限列表 
     alter any cluster 修改任意簇的权限
     alter any index 修改任意索引的权限
