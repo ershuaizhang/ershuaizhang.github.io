@@ -341,3 +341,106 @@ demo :
     1．for /d 参数 查询目录
     2．for /r 参数 遍历搜索
     3．for /l 参数 建立序列
+
+
+#查看自己的用户名：
+$ who am i
+
+#创建文件
+$ touch filename
+
+#编辑
+$ vi filename
+
+#查看 
+$ cat filename
+
+#复制 
+$ cp filename copyfile
+
+#重命名 
+$ mv filename newfile
+
+#删除 
+$ rm filename filename2
+
+#统计词数 
+$ wc filename
+
+
+pack 打包
+unpack 解压
+
+du : 显示每个文件和目录的磁盘使用空间~~~文件的大小	
+
+	参数：
+		-a #显示目录中文件的大小 单位 KB 。
+		-b #显示目录中文件的大小，以字节byte为单位。
+		-c #显示目录中文件的大小，同时也显示总和；单位KB。
+		-k 、 -m 、#显示目录中文件的大小，-k 单位KB，-m 单位MB.
+		-s #仅显示目录的总值，单位KB。
+		-h #以K M G为单位显示，提高可读性~~~（最常用的一个~也可能只用这一个就满足需求了）
+		-x #以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。
+		-L #显示选项中所指定符号链接的源文件大小。
+		-S #显示个别目录的大小时，并不含其子目录的大小。
+		-X #在<文件>指定目录或文件。
+		–exclude=<目录或文件> #略过指定的目录或文件。
+		-D #显示指定符号链接的源文件大小。
+		-H或–si #与-h参数相同，但是K，M，G是以1000为换算单位。
+		-l #重复计算硬件链接的文件。
+		
+	demo:
+		du -h /dir/
+		
+netstat
+
+	参数：
+		-a:显示所有选项
+		-t:仅显示tcp相关的
+		-u:仅显示udp相关的
+		-n:拒绝显示别名，能显示数字的全部显示为数字
+		-l:仅列出被监听的服务的状态
+		-p:显示建立相关链接的程序名
+		-r:显示路由信息，路由表
+		-e:显示扩展信息
+		-s:按各个协议进行统计
+		-C:每隔固定时间，执行nerstat命令
+
+	netstat 能够显示网络连接、路由表、接口统计信息、伪装连接以及多播成员。目前netstat 已经过时了，都推荐使用ss来代替
+
+	netstat -a 列出所有端口
+		列出所有的端口情况，包括监听的没有监听的。端口还分为tcp端口和udp端口，如果要想区分tcp端口和udp端口，
+	netstat -at
+		来列出tcp端口，
+	netstat -ap
+		来列出udp端口。
+	netstat -anp
+		查看哪些端口被打开
+	netstat -an | grep 23
+		可以查看23端口是否被打开。
+	netstat -l
+		显示已经监听的端口
+	netstat -pt
+		显示PID和进程名称
+	netstat -rn
+		显示核心路由
+	netstat -apn | grep ssh
+		查看ssh的端口
+	
+	demo:
+		netstat -tnlp | grep :22
+
+losf 
+
+    查看端口进程
+        losf -i: port
+        
+vi 是基于行的一个编辑器
+    
+    常用的命令是
+    :w      存盘当前文件
+    :w!     强制保存当前文件
+    :w file 将内容保存到指定的文件
+    :w! file 将文件强制保存到指定的文件
+    :q      退出编辑器
+    :q!     强制退出编辑器        

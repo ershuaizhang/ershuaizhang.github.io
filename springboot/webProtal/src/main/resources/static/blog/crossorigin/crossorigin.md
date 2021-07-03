@@ -84,3 +84,22 @@ Spring MVC自带的跨域问题解决方案
 带有cookie的跨域问题
 
     带有cookie时，配置Access-Control-Allow-Origin项不能为*，必须是具体的值！
+
+
+四种跨域请求资源的方案  https://zhuanlan.zhihu.com/p/50416743
+
+    野路子出身却好用的方式：JSONP；
+    官方推荐的跨域资源共享方案：CORS；
+    使用HTML5 API：postMessage；
+    抛弃HTTP，使用：Web Sockets；
+    
+---
+SpringBoot 处理跨域请求 ：
+
+https://blog.csdn.net/weixin_42036952/article/details/88564647	
+
+https://www.jianshu.com/p/85db845d3929
+
+    
+    
+      

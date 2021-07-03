@@ -67,148 +67,148 @@ AOP的好处就是你只需要干你的正事，其它事情别人帮你干。�
 
 Spring面向切面编程（AOP）的简单实例
 
-    https://blog.csdn.net/pan_junbiao/article/details/101535889
+         https://blog.csdn.net/pan_junbiao/article/details/101535889
     
 创建UserService.java用户信息业务逻辑接口。
 
-    /**
-     * 用户信息业务逻辑接口
-     * @author pan_junbiao
-     **/
-    public interface UserService
-    {
-        /**
-         * 用户注册
-         */
-        public boolean register(String userName, String blogUrl, String sex);
-     
-        /**
-         * 用户评论
-         */
-        public void comment(String userName,String comments);
-    }
+            /**
+             * 用户信息业务逻辑接口
+             * @author pan_junbiao
+             **/
+            public interface UserService
+            {
+                /**
+                 * 用户注册
+                 */
+                public boolean register(String userName, String blogUrl, String sex);
+             
+                /**
+                 * 用户评论
+                 */
+                public void comment(String userName,String comments);
+            }
 
 
 创建UserServiceImpl.java用户信息业务逻辑实现类。 
 
-    /**
-     * 用户信息业务逻辑实现类
-     * @author pan_junbiao
-     **/
-    public class UserServiceImpl implements UserService
-    {
-        /**
-         * 用户注册
-         */
-        @Override
-        public boolean register(String userName, String blogUrl, String sex)
-        {
-            System.out.println("业务方法register开始执行：");
-            System.out.println("用户名称："+userName);
-            System.out.println("博客地址："+blogUrl);
-            System.out.println("用户性别："+sex);
-            System.out.println("业务方法register执行完成");
-            return true;
-        }
-     
-        /**
-         * 用户评论
-         */
-        @Override
-        public void comment(String userName, String comments)
-        {
-            System.out.println("业务方法comment开始执行：");
-            System.out.println("用户名称："+userName);
-            System.out.println("评论内容："+comments);
-            System.out.println("业务方法comment执行完成");
-        }
-    }
+            /**
+             * 用户信息业务逻辑实现类
+             * @author pan_junbiao
+             **/
+            public class UserServiceImpl implements UserService
+            {
+                /**
+                 * 用户注册
+                 */
+                @Override
+                public boolean register(String userName, String blogUrl, String sex)
+                {
+                    System.out.println("业务方法register开始执行：");
+                    System.out.println("用户名称："+userName);
+                    System.out.println("博客地址："+blogUrl);
+                    System.out.println("用户性别："+sex);
+                    System.out.println("业务方法register执行完成");
+                    return true;
+                }
+             
+                /**
+                 * 用户评论
+                 */
+                @Override
+                public void comment(String userName, String comments)
+                {
+                    System.out.println("业务方法comment开始执行：");
+                    System.out.println("用户名称："+userName);
+                    System.out.println("评论内容："+comments);
+                    System.out.println("业务方法comment执行完成");
+                }
+            }
 
 
 这个分类是根据通知织入到业务代码时执行的时间划分的。
 
-    前置通知是在方法执行前自动执行的通知；
-    后置通知是在方法执行后自动执行的通知；
-    环绕通知能力最强，它可以在方法调用前执行通知代码，可以决定是否还调用目标方法；
-    异常通知是方法抛出异常时自动执行的切面代码。
-        前置通知：org.springframework.aop.MethodBeforeAdvice 
-        后置通知：org.springframework.aop.AfterReturningAdvice 
-        环绕通知：org.aopalliance.intercept.MethodInterceptor 
-        异常通知：org.springframework.aop.ThrowsAdvice
-
-    import org.springframework.aop.MethodBeforeAdvice;
-    import org.springframework.lang.Nullable;
-     
-    import java.lang.reflect.Method;
-    import java.text.DateFormat;
-    import java.text.SimpleDateFormat;
-    import java.util.Arrays;
-    import java.util.Date;
-     
-    /**
-     * 日志通知
-     * @author pan_junbiao
-     **/
-    public class LogAdvice implements MethodBeforeAdvice
-    {
-        @Override
-        public void before(Method var1, Object[] var2, @Nullable Object var3) throws Throwable
-        {
-            DateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-            System.out.println("\n[系统日志]");
-            System.out.println("执行时间：" + sdf.format(new Date()));
-            System.out.println("方法名称：" + var1.getName());
-            System.out.println("执行参数：" + Arrays.toString(var2));
-            System.out.println("====================================================================");
-        }
-    }
+            前置通知是在方法执行前自动执行的通知；
+            后置通知是在方法执行后自动执行的通知；
+            环绕通知能力最强，它可以在方法调用前执行通知代码，可以决定是否还调用目标方法；
+            异常通知是方法抛出异常时自动执行的切面代码。
+                前置通知：org.springframework.aop.MethodBeforeAdvice 
+                后置通知：org.springframework.aop.AfterReturningAdvice 
+                环绕通知：org.aopalliance.intercept.MethodInterceptor 
+                异常通知：org.springframework.aop.ThrowsAdvice
+        
+            import org.springframework.aop.MethodBeforeAdvice;
+            import org.springframework.lang.Nullable;
+             
+            import java.lang.reflect.Method;
+            import java.text.DateFormat;
+            import java.text.SimpleDateFormat;
+            import java.util.Arrays;
+            import java.util.Date;
+             
+            /**
+             * 日志通知
+             * @author pan_junbiao
+             **/
+            public class LogAdvice implements MethodBeforeAdvice
+            {
+                @Override
+                public void before(Method var1, Object[] var2, @Nullable Object var3) throws Throwable
+                {
+                    DateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+                    System.out.println("\n[系统日志]");
+                    System.out.println("执行时间：" + sdf.format(new Date()));
+                    System.out.println("方法名称：" + var1.getName());
+                    System.out.println("执行参数：" + Arrays.toString(var2));
+                    System.out.println("====================================================================");
+                }
+            }
 
 在src目录下创建applicationContext.xml配置文件
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-    <!-- Spring配置文件 -->
-    <beans>
-        <bean id="userServiceTarget" class="com.pjb.aop.UserServiceImpl"/>
-        <bean id="logAdvice" class="com.pjb.aop.LogAdvice"/>
-        <!-- 定义代理类 -->
-        <bean id="userService" class="org.springframework.aop.framework.ProxyFactoryBean">
-            <!-- 被代理的接口 -->
-            <property name="proxyInterfaces">
-                <value>com.pjb.aop.UserService</value>
-            </property>
-            <!-- 织入的通知列表 -->
-            <property name="interceptorNames">
-                <list>
-                    <value>logAdvice</value>
-                </list>
-            </property>
-            <!-- 被代理的原Bean -->
-            <property name="target" ref="userServiceTarget"/>
-        </bean>
-    </beans>
+            <?xml version="1.0" encoding="UTF-8"?>
+            <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+            <!-- Spring配置文件 -->
+            <beans>
+                <bean id="userServiceTarget" class="com.pjb.aop.UserServiceImpl"/>
+                <bean id="logAdvice" class="com.pjb.aop.LogAdvice"/>
+                <!-- 定义代理类 -->
+                <bean id="userService" class="org.springframework.aop.framework.ProxyFactoryBean">
+                    <!-- 被代理的接口 -->
+                    <property name="proxyInterfaces">
+                        <value>com.pjb.aop.UserService</value>
+                    </property>
+                    <!-- 织入的通知列表 -->
+                    <property name="interceptorNames">
+                        <list>
+                            <value>logAdvice</value>
+                        </list>
+                    </property>
+                    <!-- 被代理的原Bean -->
+                    <property name="target" ref="userServiceTarget"/>
+                </bean>
+            </beans>
 
 
 创建AopTest.java类，编写测试代码
 
-    import org.springframework.context.ApplicationContext;
-    import org.springframework.context.support.ClassPathXmlApplicationContext;
-     
-    /**
-     * 运行测试
-     * @author pan_junbiao
-     **/
-    public class AopTest
-    {
-        public static void main(String[] args)
-        {
-            //装载配置文件
-            ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-            //获取UserService的代理类
-            UserService userService = (UserService)context.getBean("userService");
-            //调用注册方法
-            userService.register("pan_junbiao的博客","https://blog.csdn.net/pan_junbiao","男");
-            //调用用户评论方法
-            userService.comment("pan_junbiao的博客","您好，欢迎访问 pan_junbiao的博客！");
-        }
-    }
+            import org.springframework.context.ApplicationContext;
+            import org.springframework.context.support.ClassPathXmlApplicationContext;
+             
+            /**
+             * 运行测试
+             * @author pan_junbiao
+             **/
+            public class AopTest
+            {
+                public static void main(String[] args)
+                {
+                    //装载配置文件
+                    ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+                    //获取UserService的代理类
+                    UserService userService = (UserService)context.getBean("userService");
+                    //调用注册方法
+                    userService.register("pan_junbiao的博客","https://blog.csdn.net/pan_junbiao","男");
+                    //调用用户评论方法
+                    userService.comment("pan_junbiao的博客","您好，欢迎访问 pan_junbiao的博客！");
+                }
+            }

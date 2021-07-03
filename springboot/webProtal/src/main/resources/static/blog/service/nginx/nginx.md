@@ -44,3 +44,123 @@
 
 
 [https://blog.csdn.net/weixin_43695104/article/details/88034435](https://blog.csdn.net/weixin_43695104/article/details/88034435)
+
+
+
+##常用命令
+
+#### 查看 Nginx 程序文件目录:/usr/sbin/nginx
+    $ ps  -ef | grep nginx
+
+#### 查看 nginx.conf 配置文件目录:/etc/nginx/nginx.conf
+    $ nginx -t                 
+    $ vim /etc/nginx/nginx.conf
+
+#### 配置文件目录：/etc/nginx
+
+#### 虚拟主机配置文件目录：/etc/nginx/sites-available/
+#### 虚拟主机文件夹目录：/var/www/，详情可在 /etc/nginx/sites-available/ 中配置
+#### 默认网页文件目录：/usr/share/nginx/html
+
+#### 测试配置文件，只检查配置文件是否存在语法错误
+    $ nginx -t -c <path-to-nginx.conf>
+    $ sudo nginx -t -c /etc/nginx/nginx.conf
+
+#### 启动 Nginx 服务
+    $ nginx 安装目录 -c <path-to-nginx.conf>
+    $ sudo /etc/init.d/nginx start
+
+#### 停止 Nginx 服务
+    $ sudo /usr/sbin/nginx -s stop 
+
+#### 重启 Nginx 
+    $ sudo /usr/sbin/nginx -s reload  # 0.8 版本之后的方法
+    $ kill -HUP pid     # 向 master 进程发送信号从容地重启 Nginx，即服务不中断
+    
+    $ sudo service nginx start
+    $ sudo service nginx stop
+    $ sudo service nginx restart
+
+
+##配置说明
+
+###main模块
+####main模块类似main函数包含其他子模块， 非模块配置项(包括模块内)分号结尾， 子模块配置花括号结尾
+    user nobady; #一般按默认设置
+    pid /var/run/nginx.pid; #进程标识符存放路径， 一般按默认设置
+    worker_processes auto; #nginx对外提供web服务时的worder进程数， 可将其设置为可用的CPU内核数， auto为自动检测
+    worker_rlimit_nofile 100000; # 更改worker进程的最大打开文件数限制
+    error_log logs/error.log info; #错误日志存放路径
+    keepalive_timeout 60; #keepalive_timeout 60;
+    events{
+        #见events模块
+    }
+    http{ #见http模块
+        server{
+            ...
+            location /{
+            }
+        }
+    }
+    mail{
+     #见mail模块
+    }
+    
+####events模块
+    events {
+        worker_connections 2048; #设置可由一个worker进程同时打开的最大连接数
+        multi_accept on; #告诉nginx收到一个新连接通知后接受尽可能多的连接
+        use epoll; #设置用于复用客户端线程的轮询方法。 Linux 2.6+： 使用epoll； *BSD： 使用kqueue。
+    }
+    
+####http模块
+    http { #http模块
+        server { #server模块， http服务上的虚拟主机， server 当做对应一个域名进行的配置
+            listen 80; #配置监听端口
+            server_name www.linuxidc.com; #配置访问域名
+            access_log logs/linuxidc.access.log main; #指定日志文件的存放路径
+            index index.html; #默认访问页面
+            root /var/www/androidj.com/htdocs; # root 是指将本地的一个文件夹作为所有url 请求的根路径
+            upstream backend { #反向代理的后端机器， 实现负载均衡
+                ip_hash; #指明了我们均衡的方式是按照用户的 ip 地址进行分配
+                server backend1.example.com;
+                server backend2.example.com;
+                server backend3.example.com;
+                server backend4.example.com;
+            }
+            location / { #location 是在一个域名下对更精细的路径进行配置
+                proxy_pass http://backend; #反向代理到后端机器
+            }
+        }
+    
+        server {
+            listen 80;
+            server_name www.Androidj.com;
+            access_log logs/androidj.access.log main;
+            location / {
+                index index.html;
+                root /var/www/androidj.com/htdocs;
+            }
+        }
+    }
+    
+mail模块
+
+    mail {
+        auth_http 127.0.0.1:80/auth.php;
+        pop3_capabilities "TOP" "USER";
+        imap_capabilities "IMAP4rev1" "UIDPLUS";
+    
+        server {
+            listen 110;
+            protocol pop3;
+            proxy on;
+        }
+        server {
+            listen 25;
+            protocol smtp;
+            proxy on;
+            smtp_auth login plain;
+            xclient off;
+        }
+    }

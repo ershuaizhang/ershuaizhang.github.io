@@ -14,11 +14,80 @@ properties
     
     在这个位置配置的一些属性可以在文件中其他的位置进行应用，起到一处变处处变。
 
+    将数据库连接参数单独配置在db.properties(名称可变)中，放在类路径下。
+    这样只需要在SqlMapConfig.xml中加载db.properties的属性值。
+    这样在SqlMapConfig.xml中就不需要对数据库连接参数硬编码。
+    将数据库连接参数只配置在db.properties中，
+    原因：方便对参数进行统一管理，其它xml可以引用该db.properties
+ 
+    例如：db.properties
+     jdbc.driver=com.mysql.jdbc.Driver
+     jdbc.url=jdbc:mysql://localhost:3306/mybatis
+     jdbc.username=root
+     jdbc.password=root
+ 
+	 相应的SqlMapConfig.xml
+	   <properties resource="db.properties"/>
+	   
+		<environments default="development">
+			<environment id="development">
+				<transactionManager type="JDBC"/>
+				<dataSource type="POOLED">
+					<property name="driver" value="${jdbc.driver}"/>
+					<property name="url" value="${jdbc.url}"/>
+					<property name="username" value="${jdbc.username}"/>
+					<property name="password" value="${jdbc.password}"/>
+				</dataSource>
+			</environment>
+		</environments>
+ 
+	注意： MyBatis 将按照下面的顺序来加载属性：
+	 首先、在properties标签中指定的属性文件首先被读取。
+	 其次、会读取properties元素中resource或 url 加载的属性，它会覆盖已读取的同名属性。
+	 最后、读取parameterType传递的属性，它会覆盖已读取的同名属性。
+	常用做法：
+	 不要在properties元素体内添加任何属性值，只将属性值定义在外部properties文件中。
+	 在properties文件中定义属性名要有一定的特殊性，如：XXXXX.XXXXX.XXXX的形式，就像jdbc.driver。这样可以防止和parameterType传递的属性名冲突，从而被覆盖掉。
+ 
+ 
 settings
+
+https://www.cnblogs.com/lone5wolf/p/10955780.html
     
 	这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为
-    
+        
+    mybatis全局配置参数，全局参数将会影响mybatis的运行行为。比如：开启二级缓存、开启延迟加载。具体可配置情况如下：
       
+    配置示例：
+        <settings>
+            <!-- 在 mybatis-config.xml中开启二级缓存 -->
+           <setting name="cacheEnabled" value="true"/>
+           <!-- 在 mybatis-config.xml中开启懒加载 -->
+           <setting name="lazyLoadingEnabled" value="true"/>
+           <!-- 在 mybatis-config.xml中同时开启多条 -->
+           <setting name="multipleResultSetsEnabled" value="true"/>
+        </settings>
+        
+    一个完整的settings元素示例
+     <settings>
+      <setting name="cacheEnabled" value="true"/>
+      <setting name="lazyLoadingEnabled" value="true"/>
+      <setting name="multipleResultSetsEnabled" value="true"/>
+      <setting name="aggressiveLazyLoading" value="true"/>
+      <setting name="useColumnLabel" value="true"/>
+      <setting name="useGeneratedKeys" value="false"/>
+      <setting name="autoMappingBehavior" value="PARTIAL"/>
+      <setting name="defaultExecutorType" value="SIMPLE"/>
+      <setting name="defaultStatementTimeout" value="25"/>
+      <setting name="defaultFetchSize" value="100"/>
+      <setting name="safeRowBoundsEnabled" value="false"/>
+      <setting name="mapUnderscoreToCamelCase" value="false"/>
+      <setting name="localCacheScope" value="SESSION"/>
+      <setting name="jdbcTypeForNull" value="OTHER"/>
+      <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+    </settings>
+
+详细描述：
 设置参数||描述||有效值||默认值
 
 cacheEnabled

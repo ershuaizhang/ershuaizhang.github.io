@@ -10,6 +10,13 @@
             $.get('../blog/angular/angular.md', function (response, status, xhr) {
                 $("#angular_area").html(marked(response));
             });
+            function refreshAngularContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/angular/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>

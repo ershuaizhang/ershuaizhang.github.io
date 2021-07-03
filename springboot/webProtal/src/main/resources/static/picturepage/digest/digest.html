@@ -10,6 +10,13 @@
             $.get('../picturepage/digest/digest.md', function (response, status, xhr) {
                 $("#digest_area").html(marked(response));
             });
+            function refreshDigestContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/picturepage/digest/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>
