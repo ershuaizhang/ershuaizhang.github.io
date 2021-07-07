@@ -542,12 +542,14 @@ Redis最大的单个value的最大限制是
         <version>1.1.1</version>
     </dependency>
 
+195、java程序中使用redis缓存数据，在redis客户端查不到
 
 
 
 
 
-
+redis 支持的数据类型 的用法
+- https://www.redis.com.cn/redis-data-types.html
 
 
 

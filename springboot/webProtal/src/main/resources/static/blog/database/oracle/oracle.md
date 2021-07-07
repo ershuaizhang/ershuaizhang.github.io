@@ -311,9 +311,11 @@
         
         CREATE [UNIQUE] | [BITMAP] INDEX index_name  --unique表示唯一索引
         ON table_name([column1 [ASC|DESC],column2    --bitmap，创建位图索引
-        [ASC|DESC],…] | [express]) [TABLESPACE tablespace_name]
+        [ASC|DESC],…] | [express])                   --缺省为ASC即升序排序
+        [TABLESPACE tablespace_name]                 --表空间名
+        [CLUSTER [scheam.]cluster]                   --指定一个聚簇（Hash cluster不能建索引）
         [PCTFREE n1]                                 --指定索引在数据块中空闲空间
-        [STORAGE (INITIAL n2)]
+        [STORAGE (INITIAL n2)]                       --存储参数，同create table 中的storage.
         [NOLOGGING]                                  --表示创建和重建索引时允许对表做DML操作，默认情况下不应该使用
         [NOLINE]
         [NOSORT];                                    --表示创建索引时不进行排序，默认不适用，如果数据已经是按照该索引顺序排列的可以使用
@@ -323,11 +325,33 @@
     
     删除索引
         drop index 索引名;
+        
+    建立索引的目的：
+        建立索引的目的是：
+        l 提高对表的查询速度；
+        l 对表有关列的取值进行检查。
     
+        但是，对表进行insert,update,delete处理时，由于要表的存放位置记录到索引项中而会降低一些速度。
+        注意：一个基表不能建太多的索引；
+              空值不能被索引
+              只有唯一索引才真正提高速度,一般的索引只能提高30%左右。
+              
     合并索引
         （表使用一段时间后在索引中会产生碎片，此时索引效率会降低，可以选择重建索引或者合并索引,合并索引方式更好些，
         无需额外存储空间，代价较低）
         alter index index_sno coalesce;
+    
+    修改索引
+            ALTER [UNIQUE] INDEX [user.]index
+            [INITRANS n]
+            [MAXTRANS n] 
+            REBUILD 
+            [STORAGE n]
+            
+            REBUILD 是 根据原来的索引结构重新建立索引，实际是删除原来的索引后再重新建立。
+             
+            提示：DBA经常用 REBUILD 来重建索引可以减少硬盘碎片和提高应用系统的性能。
+    
     
     重建索引
     　　方式一：删除原来的索引，重新建立索引
@@ -350,6 +374,9 @@
 	　　select dbms_metadata.get_ddl('TABLE','SZT_PQSO2','SHQSYS') from dual;　　 
 	　　select dbms_metadata.get_ddl('INDEX','INDXX_PQZJYW','SHQSYS') from dual;　 
 	　　spool off;
+- oracle索引，索引的建立、修改、删除 https://www.cnblogs.com/djcsch2001/articles/1823459.html
+- Oracle 建立索引及SQL优化 https://blog.csdn.net/qq_40285302/article/details/81874641	
+	
 ##约束
     1、添加主键约束（将stuNo作为主键）
     alter table stuInfo add constraint PK_stuNo primary key (stuNo)
